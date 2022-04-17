@@ -47,6 +47,7 @@
 
 .movies {
   height: 100%;
+  position: relative;
   .movies__inner {
     padding: 50px 70px;
     display: grid;
@@ -143,4 +144,22 @@
 .showBtn {
   opacity: 1;
   transform: translateY(0)
+}
+
+.modal {
+  position: absolute;
+  padding: 25px;
+  height: 500px;
+  width: 500px;
+  background-color: #fff;
+  border-radius: 10px;
+  top: 50px;
+  left: 35%;
+  z-index: 1000;
+  .modal__content {
+    display: flex;
+  }
+  .modal__info {
+    margin-left: 30px;
+  }
 }

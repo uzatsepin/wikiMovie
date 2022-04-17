@@ -45,6 +45,7 @@ const search = document.querySelector(".header__input");
 
 form.addEventListener("submit", (e) => {
     e.preventDefault();
+
     const apiSearchUrl = `https://api.themoviedb.org/3/search/movie?${params.apiKey}&query=${search.value}&language=ru`;
     if (search.value) {
         getMovies(apiSearchUrl);
