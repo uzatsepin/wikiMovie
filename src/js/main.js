@@ -36,7 +36,6 @@ function showMovies(data) {
                     <a class="movie__title" href="#">${title}</a>
             </div>
         `
-        console.log(poster_path);
         moviesInner.appendChild(movieItem);
     })
 }
