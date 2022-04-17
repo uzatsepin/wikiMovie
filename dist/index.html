@@ -4,6 +4,7 @@
 <meta name="viewport"
       content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
+<script src="https://kit.fontawesome.com/ae95fbb8c1.js" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="css/style.min.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,13 +26,13 @@
                         <a class="header__menu-link" href="#">Популярное</a>
                     </li>
                     <li class="header__menu-list">
-                        <a class="header__menu-link" href="#">Сейчас смотрят</a>
+                        <a class="header__menu-link" href="#">Рейтинговые</a>
                     </li>
                 </ul>
             </nav>
             <form class="header__search">
-<!--                <img src="img/search.svg" alt="" class="header__input-img">-->
-                <input class="header__input" type="text"  placeholder="Поиск фильма...">
+                <div class="input__img"><i class="fa-solid fa-magnifying-glass"></i></div>
+                <input class="header__input" type="text"  placeholder="Поиск фильма..." autofocus>
             </form>
         </div>
     </div>
@@ -39,13 +40,30 @@
 
         <main class="movies">
             <div class="container">
+                <div class="movies__nofilm">
+                    <h3 class="movies__nofilm-title">
+                        Тут нет фильмов
+                    </h3>
+                </div>
                 <div class="movies__inner">
+
+                </div>
+                <div class="page-nav">
+                    <button class="page-left">
+                        👈
+                    </button>
+                    <div class="current-page">1</div>
+                    <button class="page-right">
+                        👉
+                    </button>
                 </div>
             </div>
             <button class="scrollToTopBtn">☝️</button>
             <div class="modal">
     <div class="modal__content">
-        <img class="modal__close" src="../img/close.svg" alt="close">
+        <div class="modal__close">
+            <i class="fa-solid fa-xmark"></i>
+        </div>
         <img class="modal__img" src="../img/modal-img.png" alt="modal-img" width="200" height="295">
         <div class="modal__info">
             <h3 class="modal__title">Дюна (2021)</h3>
@@ -57,6 +75,7 @@
         </div>
     </div>
 </div>
+
         </main>
         <footer></footer>
         <script src="js/main.min.js"></script>

@@ -7,11 +7,27 @@
         @@include('html/header.html',)
         <main class="movies">
             <div class="container">
+                <div class="movies__nofilm">
+                    <h3 class="movies__nofilm-title">
+                        Тут нет фильмов
+                    </h3>
+                </div>
                 <div class="movies__inner">
+
+                </div>
+                <div class="page-nav">
+                    <button class="page-left">
+                        👈
+                    </button>
+                    <div class="current-page">1</div>
+                    <button class="page-right">
+                        👉
+                    </button>
                 </div>
             </div>
             <button class="scrollToTopBtn">☝️</button>
             @@include('html/modal.html',)
+
         </main>
         @@include('html/footer.html',)
         <script src="js/main.min.js"></script>

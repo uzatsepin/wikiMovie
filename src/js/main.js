@@ -1,31 +1,61 @@
 import * as flsFunctions from './modules/functions.js';
 flsFunctions.isWebp();
 
-import {moviesInner,
+import {
+    moviesInner,
     scrollToTopBtn,
     scrollToTop,
     handleScroll,
     getImg,
-    colorRating} from './modules/utils.js';
+    colorRating,
+    form,
+    search,
+    nextBtn,
+    prevBtn,
+    updatePageCounter,
+    page,
+    noFilm} from './modules/utils.js';
 
 const params = {
     'apiKey': 'api_key=8d9b44db0c2dfcce1e041eeb333d135c',
     'link': 'https://api.themoviedb.org/3/',
     'imgPath': 'https://image.tmdb.org/t/p/w1280',
+    'sortBy': [
+        'popularity.desc',
+        'vote_average.desc',
+        'release_date.desc',
+    ]
 }
+let currentPage = 1;
+
+const URL = `${params.link}discover/movie?sort_by=popularity.desc&${params.apiKey}&language=ru&region=ru`;
 
 async function getMovies(url) {
     const res = await fetch(url);
     const data = await res.json();
-
-    showMovies(data.results);
+    showMovies(data);
 }
-getMovies(`${params.link}discover/movie?sort_by=popularity.desc&${params.apiKey}&language=ru&region=ru`)
+getMovies(URL);
+
+nextBtn.addEventListener('click', () => {
+    currentPage++
+    getMovies(`${params.link}discover/movie?sort_by=popularity.desc&${params.apiKey}&language=ru&region=ru&page=${currentPage}`);
+    updatePageCounter(currentPage);
+})
+prevBtn.addEventListener('click', () => {
+    if(currentPage <= 1) {
+        prevBtn.disabled = true;
+    } else if(currentPage > 1) {
+        currentPage--
+        updatePageCounter(currentPage);
+    }
+    getMovies(`${params.link}discover/movie?sort_by=popularity.desc&${params.apiKey}&language=ru&region=ru&page=${currentPage}`);
+})
+
 
 function showMovies(data) {
-
     moviesInner.innerHTML = '';
-    data.forEach(movie => {
+    data.results.splice(0,18).forEach(movie => {
         const {title, poster_path, vote_average} = movie;
         const movieItem = document.createElement('div');
 
@@ -38,7 +68,6 @@ function showMovies(data) {
             </div>
         `
         moviesInner.appendChild(movieItem);
-
 
         const openModal = document.querySelectorAll('.movies__item');
         const modal = document.querySelector('.modal');
@@ -56,9 +85,6 @@ function showMovies(data) {
     })
 }
 
-const form = document.querySelector("form");
-const search = document.querySelector(".header__input");
-
 form.addEventListener("submit", (e) => {
     e.preventDefault();
 
@@ -68,6 +94,6 @@ form.addEventListener("submit", (e) => {
     }
 });
 
-
 document.addEventListener("scroll", handleScroll);
 scrollToTopBtn.addEventListener('click', scrollToTop);
+

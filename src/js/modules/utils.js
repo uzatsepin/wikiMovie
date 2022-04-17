@@ -2,6 +2,17 @@ export const moviesInner = document.querySelector('.movies__inner');
 export const rootElement = document.documentElement
 export const scrollToTopBtn = document.querySelector('.scrollToTopBtn')
 
+//Search Form
+export const form = document.querySelector("form");
+export const search = document.querySelector(".header__input");
+
+//Navigation button
+export const nextBtn = document.querySelector('.page-right');
+export const prevBtn = document.querySelector('.page-left');
+export const page = document.querySelector('.current-page');
+
+export const noFilm = document.querySelector('.movies__nofilm');
+
 export function scrollToTop() {
     rootElement.scrollTo({
         top: 0,
@@ -10,7 +21,7 @@ export function scrollToTop() {
 }
 export function handleScroll() {
     const scrollTotal = rootElement.scrollHeight - rootElement.clientHeight
-    if ((rootElement.scrollTop / scrollTotal ) > 0.80 ) {
+    if ((rootElement.scrollTop / scrollTotal ) > 0.05 ) {
         scrollToTopBtn.classList.add("showBtn")
     } else {
         scrollToTopBtn.classList.remove("showBtn")
@@ -31,4 +42,9 @@ export function colorRating(rating) {
     } else {
         return 'bad'
     }
+}
+
+export function updatePageCounter(currentPage){
+    page.innerHTML = currentPage;
+    prevBtn.disabled = false;
 }
