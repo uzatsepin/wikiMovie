@@ -454,6 +454,7 @@ template {
 
 .movies {
   height: 100%;
+  position: relative;
 }
 
 .movies .movies__inner {
@@ -562,4 +563,55 @@ template {
 .showBtn {
   opacity: 1;
   transform: translateY(0);
+}
+
+.modal {
+  display: none;
+  position: absolute;
+  padding: 25px;
+  height: 330px;
+  width: 430px;
+  background-color: #fff;
+  border-radius: 10px;
+  top: 50px;
+  left: 35%;
+  z-index: 1000;
+}
+
+.modal .modal__close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  cursor: pointer;
+}
+
+.modal .modal__content {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.modal .modal__info {
+  margin-left: 30px;
+}
+
+.modal .modal__info span {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 16px;
+  color: #444444;
+}
+
+.modal .modal__title {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 18px;
+  color: #444444;
+  text-align: center;
+}
+
+.modal .modal__info-text {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 16px;
+  color: #444444;
 }
