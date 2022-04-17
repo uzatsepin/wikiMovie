@@ -23,6 +23,7 @@ async function getMovies(url) {
 getMovies(`${params.link}discover/movie?sort_by=popularity.desc&${params.apiKey}&language=ru&region=ru`)
 
 function showMovies(data) {
+
     moviesInner.innerHTML = '';
     data.forEach(movie => {
         const {title, poster_path, vote_average} = movie;
@@ -37,6 +38,21 @@ function showMovies(data) {
             </div>
         `
         moviesInner.appendChild(movieItem);
+
+
+        const openModal = document.querySelectorAll('.movies__item');
+        const modal = document.querySelector('.modal');
+
+        openModal.forEach(item => {
+            item.addEventListener('click', () => {
+                modal.style.display = 'block'
+            })
+        })
+
+        const modalClose = document.querySelector('.modal__close');
+        modalClose.addEventListener('click', () => {
+            modal.style.display = 'none'
+        })
     })
 }
 
