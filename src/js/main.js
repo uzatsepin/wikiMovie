@@ -26,15 +26,14 @@ const params = {
         'release_date.desc',
     ]
 }
-let currentPage = 1;
-
-const URL = `${params.link}discover/movie?sort_by=popularity.desc&${params.apiKey}&language=ru&region=ru`;
 
 async function getMovies(url) {
     const res = await fetch(url);
     const data = await res.json();
     showMovies(data);
 }
+let currentPage = 1;
+const URL = `${params.link}discover/movie?sort_by=popularity.desc&${params.apiKey}&language=ru&region=ru`;
 getMovies(URL);
 
 nextBtn.addEventListener('click', () => {
